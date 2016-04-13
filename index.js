@@ -11,10 +11,13 @@ var client = new Twitter({
 });
 
 
-var wgtnTweets = client.get('search/tweets', {q: '#wgtn'}, function(error, tweets, response) {
+var wgtnTweets = client.get('search/tweets', {q: '#fungus', lang: 'en'}, function(error, tweets, response) {
   if (error) console.log(error);
   var searchResult = JSON.parse(response.body)
 //  console.log(response.body)
 //  console.log(tweets.statuses)
-  console.log('this is searchResult: ', searchResult)
+//  console.log('this is searchResult: ', searchResult)
+  for (var i = 0; i < tweets.statuses.length; i++) {
+    console.log(tweets.statuses[i].text)
+  }
 })
