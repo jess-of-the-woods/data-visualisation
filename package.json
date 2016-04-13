@@ -18,5 +18,11 @@
   },
   "devDependencies": {
     "express": "^4.13.4"
+  },
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "promise": "^7.1.1",
+    "superagent": "^1.8.3",
+    "twitter": "^1.2.5"
   }
 }
