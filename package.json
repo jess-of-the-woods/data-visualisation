@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify . -o bundle.js -g uglifyify",
+    "build": "browserify . -o bundle.js -g uglifyify", // works, but bundle is huge
     "start": "nodemon ./index.js",
-    "watch": "watchify -t index.js -o bundle.js -dv"
+    "watch": "watchify -t index.js -o bundle.js -dv" // not working
   },
   "repository": {
     "type": "git",
