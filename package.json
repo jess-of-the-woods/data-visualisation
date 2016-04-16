@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify . -o bundle.js -g uglifyify", // works, but bundle is huge
-    "start": "nodemon ./index.js",
-    "watch": "watchify -t index.js -o bundle.js -dv" // not working
+    "build": "browserify ./src/index.js -o ./client/bundle.js",
+    "start": "nodemon ./server.js",
+    "watch": "watchify ./src/index.js -o ./client/bundle.js -dv"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "dotenv": "^2.0.0",
+    "jquery": "^2.2.3",
     "promise": "^7.1.1",
     "superagent": "^1.8.3",
     "twitter": "^1.2.5"
