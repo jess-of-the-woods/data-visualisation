@@ -1,1 +1,0 @@
-console.error("Error: Cannot find module '/home/user/Documents/tech/js/EDA/data-visualisation/index.js' from '/home/user/Documents/tech/js/EDA/data-visualisation'");

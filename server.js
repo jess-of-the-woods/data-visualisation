@@ -19,15 +19,15 @@ app.get('/', function (req, res) {
 }); // close app.get
 
 app.get('/tweets', function(req, res){
-    var lichenTweets = client.get('search/tweets', {q: '#lichen', lang: 'en'}, function(error, tweets, response) {
+    var lichenTweets = client.get('search/tweets', {q: '#punk', lang: 'en'}, function(error, tweets, response) {
     if (error) console.log(error);
   //  var searchResult = JSON.parse(response.body)
     res.json(tweets.statuses)
  }) // close client.get
 })
 
-app.listen(4000, function () {
-  console.log('Example app listening on port 4000!');
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });
 
 
