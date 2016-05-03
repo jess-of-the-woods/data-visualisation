@@ -3,6 +3,7 @@
 <head>
 	<title>Tweet Visualisation Project</title>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 	<style>
 		body {
 				background-color: #353338;
@@ -12,13 +13,14 @@
 </head>
 <body>
   <h1>Tweet Visualisation Project</h1>
-	<!-- <form>
-		<input placeholder="hashtag.."></input>
+	<!-- <form action='/tweets' method='post'>
+		<input name='hashtag' placeholder="hashtag.."></input>
 		<input type='submit' value='submit'></input>
 	</form> -->
-  <p>Some tweets..</p>
-	<div id="tweetsDiv"></div>
-	<div><p>Yea yea. Yep. Those are the tweets.</p></div>
+  <h3>Some tweets..</h3>
+	<div class="container" id="tweetsDiv"></div>
+	<div class="container" id="hashtagAssociates"></div>
+	<div><h4>Yep yep, those are the tweets. You just saw 'em.</p></h4>
 	<script src="bundle.js"></script>
 </body>
 </html>
