@@ -5,18 +5,15 @@ $(document).ready(function() {
 	request
 		.get('/tweets')
 		.end(function(err, res){
-			//  console.log(res.body)
 			for (var i = 0; i < res.body.length; i++) {
 				$('#tweetsDiv').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
-			//	console.log(res.body[i].text)
 			}
 
 			var hashtagArray = []
 			for ( var i = 0; i < res.body.length; i++ ) {
 				hashtagArray.push(res.body[i].text.match(/#\w+/g))
-				// console.log('this is i: ', i)
 			}
-			console.log('this is hashtagArray: ', hashtagArray)
+		//	console.log('this is hashtagArray: ', hashtagArray)
 			var hashtagCounts = {}
 			for (var i = 0; i < hashtagArray.length; i++) {
 				var hashtagSubArray = hashtagArray[i]
@@ -30,13 +27,31 @@ $(document).ready(function() {
 					}
 				}
 			} // close outer for..
+			
+			function compareSecondColumn(a, b) {
+		    if (a[1] === b[1]) {
+		        return 0;
+		    } else {
+		        return (a[1] > b[1]) ? -1 : 1;
+		    }
+			}
 
-			// console.log('this is hashtagCounts: ', hashtagCounts)
+			console.log('thus we have hashtagCounts: ', hashtagCounts)
+			var hashtagCountArray = [];
+			for( var hashtag in hashtagCounts ) {
+			       hashtagCountArray.push([hashtag,hashtagCounts[hashtag]]);
+			}
+			var sortedHashTagCountArray = hashtagCountArray.sort(compareSecondColumn)
+			console.log('this is hashtagCountArray(sorted!): ', sortedHashTagCountArray)
 
-			for (var i = 0; i < hashtagCounts.length; i++) {
-				$('#hashtagAssociates').append('<p>' + hashtagCounts[i].value +'</p>')
-				// console.log(hashtagCounts)
-				// console.log('this is i: ', i )
+// ===== for loop appends hashtags to page
+			// for (var hashtag in hashtagCounts) {
+			// 	$('#hashtagAssociates').append('<p>' + hashtag + ':' + hashtagCounts[hashtag] + '</p>')
+			// 	 //console.log(hashtag)
+			// }
+
+			for (var hashtag = 0; hashtag < sortedHashTagCountArray.length; hashtag++) {
+				 	$('#hashtagAssociates').append('<p>' +  sortedHashTagCountArray[hashtag] + '</p>')
 			}
 
 		}) // close .end

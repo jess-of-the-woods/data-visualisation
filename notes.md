@@ -4,6 +4,12 @@ browserify and render to DOM (debug browserify process.. huge file, lags, browse
 
 'npm start' to start, logs to console
 
+1. get more tweets from twitter based on location..
+into an array.
+
+2. analyze based on other hashtags also included..
+
+3. build up a visualisation based on number of associated hashtags..
 
 Build a function using regex to push all hashtags to an array. Another function to add all hashtags in array to an object, incrementing the number if hashtag exists more than once.
 var hashtagObj = {}
@@ -12,3 +18,14 @@ hashtagObj['color'] = "blue"
 https://stackoverflow.com/questions/25538860/extracting-hashtags-out-of-a-string
 Just use a regular expression to find occurences of a hash followed by non-whitespace characters.
 .match(/#\w+/g)
+
+
+
+sort nested array (hashtagCountArray) by 2nd element in inner arrays
+e.g.
+[
+  [happy, 1],
+  [sad, 3],
+  [jealous, 43]
+]
+https://stackoverflow.com/questions/16096872/how-to-sort-2-dimensional-array-by-column-value
