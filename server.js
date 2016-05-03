@@ -15,13 +15,16 @@ var client = new Twitter({
 app.get('/', function (req, res) {
     res.send('index.html');
 
-
 }); // close app.get
 
 app.get('/tweets', function(req, res){
-    var lichenTweets = client.get('search/tweets', {q: '#punk', lang: 'en'}, function(error, tweets, response) {
+    var wgtnGeoCode = "-41.28648,174.776217,500km"
+    var wellyTweets =  client.get('search/tweets', {q: '#happy', count: 10, geocode: wgtnGeoCode}, function(error, tweets, response) {
     if (error) console.log(error);
-  //  var searchResult = JSON.parse(response.body)
+    var searchResult = JSON.parse(response.body)
+    console.log(tweets.statuses)
+    // console.log('response.body: ', response.body)
+    //console.log('this is tweets.statuses: ', tweets.statuses)
     res.json(tweets.statuses)
  }) // close client.get
 })
@@ -31,5 +34,4 @@ app.listen(3000, function () {
 });
 
 
-// console.log('response.body: ', response.body)
 // console.log('tweets.statuses: ', tweets.statuses)
