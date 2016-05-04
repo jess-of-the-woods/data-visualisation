@@ -1,10 +1,12 @@
 var $        = require('jquery')
 var request  = require('superagent');
+var pieChart = require('./pieChart')
 
 $(document).ready(function() {
 	request
 		.get('/tweets')
 		.end(function(err, res){
+			//console.log('res.body: ', res.body)
 			for (var i = 0; i < res.body.length; i++) {
 				$('#tweetsDiv').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
 			}
@@ -27,32 +29,38 @@ $(document).ready(function() {
 					}
 				}
 			} // close outer for..
-			
+
 			function compareSecondColumn(a, b) {
-		    if (a[1] === b[1]) {
+		    if (a.count === b.count) {
 		        return 0;
 		    } else {
-		        return (a[1] > b[1]) ? -1 : 1;
+		        return (a.count > b.count) ? -1 : 1;
 		    }
 			}
 
-			console.log('thus we have hashtagCounts: ', hashtagCounts)
+	//		console.log('thus we have hashtagCounts: ', hashtagCounts)
 			var hashtagCountArray = [];
 			for( var hashtag in hashtagCounts ) {
-			       hashtagCountArray.push([hashtag,hashtagCounts[hashtag]]);
+			       hashtagCountArray.push({
+							 hashtag: hashtag,
+							 count: hashtagCounts[hashtag]
+						 });
 			}
-			var sortedHashTagCountArray = hashtagCountArray.sort(compareSecondColumn)
-			console.log('this is hashtagCountArray(sorted!): ', sortedHashTagCountArray)
 
-// ===== for loop appends hashtags to page
+			var sortedHashTagCountArray = hashtagCountArray.sort(compareSecondColumn)
+			pieChart(sortedHashTagCountArray.slice(0,12), '#pieChart')
+
+			console.log('this is sortedHashTagCountArray: ', sortedHashTagCountArray)
+
+			// ===== for loop appends hashtags to page
 			// for (var hashtag in hashtagCounts) {
 			// 	$('#hashtagAssociates').append('<p>' + hashtag + ':' + hashtagCounts[hashtag] + '</p>')
 			// 	 //console.log(hashtag)
 			// }
-
-			for (var hashtag = 0; hashtag < sortedHashTagCountArray.length; hashtag++) {
-				 	$('#hashtagAssociates').append('<p>' +  sortedHashTagCountArray[hashtag] + '</p>')
-			}
+			//
+			// for (var hashtag = 0; hashtag < sortedHashTagCountArray.length; hashtag++) {
+			// 	 	$('#hashtagAssociates').append('<p>' +  sortedHashTagCountArray[hashtag] + '</p>')
+			// }
 
 		}) // close .end
 }) // close document ready..

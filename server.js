@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 app.get('/tweets', function(req, res){
   // var hashtagInput = req.body.name // grabs from form
     var wgtnGeoCode = "-41.28648,174.776217,750km"
-    var wellyTweets =  client.get('search/tweets', {q: '#happy', lang: 'en', count: 30, geocode: wgtnGeoCode}, function(error, tweets, response) {
+    var wellyTweets =  client.get('search/tweets', {q: '#lichen', lang: 'en', count: 10/*, geocode: wgtnGeoCode*/}, function(error, tweets, response) {
     if (error) console.log(error);
     // var searchResult = JSON.parse(response.body)
     // console.log(tweets.statuses)

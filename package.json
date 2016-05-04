@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "cheerio": "^0.20.0",
+    "d3": "^3.5.16",
     "dotenv": "^2.0.0",
     "jquery": "^2.2.3",
     "promise": "^7.1.1",
