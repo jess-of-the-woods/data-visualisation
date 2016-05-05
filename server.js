@@ -1,8 +1,10 @@
 var express = require('express');
 require('dotenv').config();
 var Twitter = require('twitter');
+var bodyParser = require('body-parser')
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended:true }))
 app.use(express.static('client'));
 
 var client = new Twitter({
@@ -18,9 +20,10 @@ app.get('/', function (req, res) {
 }); // close app.get
 
 app.get('/tweets', function(req, res){
-  // var hashtagInput = req.body.name // grabs from form
     var wgtnGeoCode = "-41.28648,174.776217,750km"
-    var wellyTweets =  client.get('search/tweets', {q: '#lichen', lang: 'en', count: 10/*, geocode: wgtnGeoCode*/}, function(error, tweets, response) {
+    console.log(req)
+
+    var wellyTweets =  client.get('search/tweets', {q: '#happy', lang: 'en', count: 20, geocode: wgtnGeoCode}, function(error, tweets, response) {
     if (error) console.log(error);
     // var searchResult = JSON.parse(response.body)
     // console.log(tweets.statuses)
@@ -28,6 +31,16 @@ app.get('/tweets', function(req, res){
     //console.log('this is tweets.statuses: ', tweets.statuses)
     res.json(tweets.statuses)
  }) // close client.get
+})
+
+app.post('/tweets', function(req, res){
+  // console.log('this is req.body: ', Object.keys(req.body)[0])
+  var hashtagInput = Object.keys(req.body)[0] // grabs from form?
+  //  console.log(hashtagInput)
+  client.get('search/tweets', {q: hashtagInput, lang: 'en', count: 20}, function(error, tweets, response) {
+  if (error) console.log(error);
+  res.json(tweets.statuses)
+  }) // close client.get
 })
 
 app.listen(3000, function () {

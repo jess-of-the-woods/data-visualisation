@@ -4,26 +4,34 @@
 	<title>Tweet Visualisation Project</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-	<!-- <script src="http://d3js.org/d3.v3.min.js" type="text/javascript" ></script> -->
 	<style>
 		body {
-				background-color: #353338;
-				color: #d3d3d3;
-			}
+			background-color: #353338;
+			color: #d3d3d3;
+		}
 	</style>
 </head>
 <body>
   <h1>Tweet Visualisation Project</h1>
-	<!-- <form action='/tweets' method='post'>
-		<input name='hashtag' placeholder="hashtag.."></input>
-		<input type='submit' value='submit'></input>
-	</form> -->
-  <h3>Some tweets..</h3>
-	<div class="container" id="tweetsDiv"></div>
-	<div><h4>Yep yep, those are the tweets. You just saw 'em.</p></h4>
-	<h5>Associated Hashtags</h5>
-	<div class="container" id="hashtagAssociates"></div>
-	<div id='pieChart'></div>
+	<div class="container">
+		<form id='hashtagForm' action='/tweets' method='post'>
+			<input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.." autofocus></input>
+			<input type='submit' value='submit'></input>
+		</form>
+	</div>
+	<div class="container">
+		<h3>Some tweets..</h3>
+		<div id="tweetsDiv"></div>
+		<h4>Yep yep, those are the tweets. You just saw 'em.</h4>
+		<br>
+	</div>
+	<div>
+	<div class="container" id="hashtagAssociates">
+		<h5>Associated Hashtags</h5>
+		<div id='pieChart'></div>
+	</div>
+	<br>
+	<br>
 	<script src="bundle.js"></script>
 </body>
 </html>

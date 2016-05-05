@@ -8,14 +8,14 @@ $(document).ready(function() {
 		.end(function(err, res){
 			//console.log('res.body: ', res.body)
 			for (var i = 0; i < res.body.length; i++) {
-				$('#tweetsDiv').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
+				$('#tweetsDiv').prepend('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
 			}
 
 			var hashtagArray = []
 			for ( var i = 0; i < res.body.length; i++ ) {
 				hashtagArray.push(res.body[i].text.match(/#\w+/g))
 			}
-		//	console.log('this is hashtagArray: ', hashtagArray)
+
 			var hashtagCounts = {}
 			for (var i = 0; i < hashtagArray.length; i++) {
 				var hashtagSubArray = hashtagArray[i]
@@ -38,7 +38,6 @@ $(document).ready(function() {
 		    }
 			}
 
-	//		console.log('thus we have hashtagCounts: ', hashtagCounts)
 			var hashtagCountArray = [];
 			for( var hashtag in hashtagCounts ) {
 			       hashtagCountArray.push({
@@ -48,9 +47,32 @@ $(document).ready(function() {
 			}
 
 			var sortedHashTagCountArray = hashtagCountArray.sort(compareSecondColumn)
-			pieChart(sortedHashTagCountArray.slice(0,12), '#pieChart')
+			//calls pieChart function and passes it 'sortedHashTagCountArray', sliced at 16th item as data, & id #pieChart as place to mount it.
+			pieChart(sortedHashTagCountArray.slice(0,16), '#pieChart')
 
-			console.log('this is sortedHashTagCountArray: ', sortedHashTagCountArray)
+		//	console.log('this is sortedHashTagCountArray: ', sortedHashTagCountArray)
+
+			$('#hashtagForm').submit(function(e){
+				e.preventDefault()
+				var value = $('#hashtagInput').val()
+				request
+				.post('/tweets')
+				.send(value)
+				.end(function(error, response){
+    				if(error) {
+       				console.log("Error: " + error);
+    				}
+						else {
+								console.log(response.body)
+								for (var x in response.body) {
+									console.log('xx')
+								}
+						}
+
+						// console log response, get the tweet data out of it\
+						// then append it to the page
+					})
+				})
 
 			// ===== for loop appends hashtags to page
 			// for (var hashtag in hashtagCounts) {
