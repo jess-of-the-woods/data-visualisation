@@ -8,7 +8,7 @@ $(document).ready(function() {
 		.end(function(err, res){
 			//console.log('res.body: ', res.body)
 			for (var i = 0; i < res.body.length; i++) {
-				$('#tweetsDiv').prepend('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
+				$('#tweetsDiv').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
 			}
 
 			var hashtagArray = []
@@ -57,20 +57,16 @@ $(document).ready(function() {
 				var value = $('#hashtagInput').val()
 				request
 				.post('/tweets')
-				.send(value)
-				.end(function(error, response){
+				.send('#' + value)
+				.end(function(error, res){
     				if(error) {
        				console.log("Error: " + error);
     				}
 						else {
-								console.log(response.body)
-								for (var x in response.body) {
-									console.log('xx')
+								for (var w in res.body) {
+									$('#tweetsDiv2').append('<p>' + res.body[w].text + '</p>')
 								}
 						}
-
-						// console log response, get the tweet data out of it\
-						// then append it to the page
 					})
 				})
 
