@@ -7,10 +7,21 @@ $(document).ready(function() {
 		.get('/tweets')
 		.end(function(err, res){
 			//console.log('res.body: ', res.body)
-			$('#tweetsDiv').append('<h3>Hardcoded tweet results..</h3>')			
+			$('#tweetsDiv2').append('<h3>Hardcoded tweet results..</h3>')
 			for (var i = 0; i < res.body.length; i++) {
-				$('#tweetsDiv').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
+				$('#tweetsDiv2').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
 			}
+
+			// attempted refactor (put code inside fn and call it)
+			// createHashtagArray function (resBody) {
+			// 	var hashtagArray = []
+			// 	console.log(typeof resBody)
+			// 	for ( var i = 0; i < resBody.length; i++ ) {
+			// 		hashtagArray.push(resBody[i].text.match(/#\w+/g))
+			// 	}
+			// 	return hashtagArray
+			// }
+			// createHashtagArray(res.body)
 
 			var hashtagArray = []
 			for ( var i = 0; i < res.body.length; i++ ) {
@@ -50,12 +61,10 @@ $(document).ready(function() {
 			}
 
 			var sortedHashTagCountArray = hashtagCountArray.sort(compareSecondColumn)
-			console.log('this is sortedHashTagCountArray', sortedHashTagCountArray)
+			// console.log('this is sortedHashTagCountArray', sortedHashTagCountArray)
 
 			//calls pieChart function and passes it 'sortedHashTagCountArray', sliced at 16th item as data, & id #pieChart as place to mount it.
 			pieChart(sortedHashTagCountArray.slice(0,16), '#pieChart')
-
-		//	console.log('this is sortedHashTagCountArray: ', sortedHashTagCountArray)
 
 			$('#hashtagForm').submit(function(e){
 				e.preventDefault()
@@ -68,24 +77,19 @@ $(document).ready(function() {
        				console.log("Error: " + error);
     				}
 						else {
-							$('#tweetsDiv2').append('<h3>Search Results: </h3>')
+							$('#searchResult').html('Search Results:' + ' ' + '#' + value)
 							for (var w in res.body) {
-								$('#tweetsDiv2').append('<p>' + res.body[w].text + '</p>')
+								$('#tweetsDiv').append('<p>' + res.body[w].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
 								}
+							$('#tweetsDiv').append('<h4>Yep yep, those are the tweets. You just saw em.</h4><br>')
 						}
 					})
 				})
 
-			// ===== for loop appends hashtags to page
-			// for (var hashtag in hashtagCounts) {
-			// 	$('#hashtagAssociates').append('<p>' + hashtag + ':' + hashtagCounts[hashtag] + '</p>')
-			// 	 //console.log(hashtag)
-			// }
-
 			// ===== for loop appends sorted hashtags to page
+			$('#hashtagAssociates').prepend('<h5>Associated Hashtags:</h5>')
 			for (var hashtag = 0; hashtag < sortedHashTagCountArray.length; hashtag++) {
 				 	$('#hashtagAssociates').append('<p>' +  sortedHashTagCountArray[hashtag].hashtag + ': ' + sortedHashTagCountArray[hashtag].count +'</p>')
 			}
-
-		}) // close .end
-}) // close document ready..
+		})
+})

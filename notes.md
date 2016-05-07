@@ -42,4 +42,7 @@ for (var i = 0; i < hashtagArray.length; i++) {
 }
 `_____
 
-get all users tweets, graph by hashtag (love Tabby)
+
+* get searched for queries running through analysis & rendering in pie chart
+
+* get all users tweets, graph by hashtag (love Tabby)
