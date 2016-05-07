@@ -19,7 +19,7 @@ module.exports = function(data, root) {
       .attr("transform", "translate(" + 200 + "," + 200 + ")");
 
     var g = svg.selectAll(".arc")
-          .data(pie(data))
+        .data(pie(data))
         .enter().append("g")
           .attr("class", "arc");
 

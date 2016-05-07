@@ -28,6 +28,7 @@ $(document).ready(function() {
 				hashtagArray.push(res.body[i].text.match(/#\w+/g))
 			}
 
+			// create hashtagCounts object
 			var hashtagCounts = {}
 			for (var i = 0; i < hashtagArray.length; i++) {
 				console.log('this is hashtagArray: ', hashtagArray)
@@ -42,16 +43,10 @@ $(document).ready(function() {
 						hashtagCounts[hashtag] = 1
 					}
 				}
-			} // close outer for..
-
-			function compareSecondColumn(a, b) {
-		    if (a.count === b.count) {
-		        return 0;
-		    } else {
-		        return (a.count > b.count) ? -1 : 1;
-		    }
 			}
 
+
+			// create hashtagCountArray from hashtagCounts object
 			var hashtagCountArray = [];
 			for( var hashtag in hashtagCounts ) {
 			       hashtagCountArray.push({
@@ -60,12 +55,22 @@ $(document).ready(function() {
 						 });
 			}
 
+			// sort hashtag by count (2nd column)
+			function compareSecondColumn(a, b) {
+		    if (a.count === b.count) {
+		        return 0;
+		    } else {
+		        return (a.count > b.count) ? -1 : 1;
+		    }
+			}
 			var sortedHashTagCountArray = hashtagCountArray.sort(compareSecondColumn)
-			// console.log('this is sortedHashTagCountArray', sortedHashTagCountArray)
 
-			//calls pieChart function and passes it 'sortedHashTagCountArray', sliced at 16th item as data, & id #pieChart as place to mount it.
+
+			// calls pieChart function and passes it 'sortedHashTagCountArray', sliced at 16th item as data, & id #pieChart as place to mount it.
 			pieChart(sortedHashTagCountArray.slice(0,16), '#pieChart')
 
+
+			//========= render search results ( tweets )
 			$('#hashtagForm').submit(function(e){
 				e.preventDefault()
 				var value = $('#hashtagInput').val()
@@ -86,10 +91,10 @@ $(document).ready(function() {
 					})
 				})
 
-			// ===== for loop appends sorted hashtags to page
-			$('#hashtagAssociates').prepend('<h5>Associated Hashtags:</h5>')
-			for (var hashtag = 0; hashtag < sortedHashTagCountArray.length; hashtag++) {
-				 	$('#hashtagAssociates').append('<p>' +  sortedHashTagCountArray[hashtag].hashtag + ': ' + sortedHashTagCountArray[hashtag].count +'</p>')
+			// =========== render sorted hashtags
+			$('#hashtagAssociatesDiv').prepend('<h5>Associated Hashtags:</h5><br>')
+			for (var hashtag = 0; hashtag < sortedHashTagCountArray.slice(0,16).length; hashtag++) {
+				 	$('#hashtagAssociates').append(sortedHashTagCountArray[hashtag].hashtag + ': ' + sortedHashTagCountArray[hashtag].count + '<br>')
 			}
 		})
 })
