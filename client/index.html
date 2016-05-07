@@ -9,6 +9,17 @@
 			background-color: #353338;
 			color: #d3d3d3;
 		}
+		h1 {
+			margin-top: 2.5%;
+			margin-left: 2.5%;
+		}
+		#hashtagInput {
+			background-color: #d3d3d3;
+		}
+		#submitButton {
+			background-color: #838B83;
+			border-color: none;
+		}
 	</style>
 </head>
 <body>
@@ -16,14 +27,13 @@
 	<div class="container">
 		<form id='hashtagForm' action='/tweets' method='post'>
 			<input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.." autofocus></input>
-			<input type='submit' value='submit'></input>
+			<input id='submitButton' type='submit' value='submit'></input>
 		</form>
 	</div>
 	<div class="container">
-		<h3>Some tweets..</h3>
-		<div id="tweetsDiv"></div>
-		<h3>The second lot</h3>
+		<!-- <h3>Some tweets..</h3> -->
 		<div id="tweetsDiv2"></div>
+		<div id="tweetsDiv"></div>
 		<h4>Yep yep, those are the tweets. You just saw 'em.</h4>
 		<br>
 	</div>

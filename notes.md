@@ -31,5 +31,15 @@ e.g.
 
 https://stackoverflow.com/questions/16096872/how-to-sort-2-dimensional-array-by-column-value
 
+________
+
+with some search queries (e.g. #feminism), zeroth array element is null..
+index.js:24 Uncaught TypeError: Cannot read property 'length' of null
+
+```
+for (var i = 0; i < hashtagArray.length; i++) {
+  var hashtagSubArray = hashtagArray[i]
+}
+`_____
 
 get all users tweets, graph by hashtag (love Tabby)

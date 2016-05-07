@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 
 app.get('/tweets', function(req, res){
     var wgtnGeoCode = "-41.28648,174.776217,750km"
-    var wellyTweets =  client.get('search/tweets', {q: '#happy', lang: 'en', count: 20, geocode: wgtnGeoCode}, function(error, tweets, response) {
+    var wellyTweets =  client.get('search/tweets', {q: '#fungi', lang: 'en', count: 20, geocode: wgtnGeoCode}, function(error, tweets, response) {
     if (error) console.log(error);
     res.json(tweets.statuses)
  }) // close client.get
