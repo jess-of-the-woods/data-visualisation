@@ -2,6 +2,15 @@ var $        = require('jquery')
 var request  = require('superagent');
 var pieChart = require('./pieChart')
 
+
+function extractHashtags(tweets) {
+  var hashtagArray = []
+  for ( var i = 0; i < tweets.length; i++ ) {
+    hashtagArray.push(tweets[i].text.match(/#\w+/g))
+  }
+  return hashtagArray
+}
+
 $(document).ready(function() {
 	request
 		.get('/tweets')
@@ -12,21 +21,7 @@ $(document).ready(function() {
 				$('#tweetsDiv2').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
 			}
 
-			// attempted refactor (put code inside fn and call it)
-			// createHashtagArray function (resBody) {
-			// 	var hashtagArray = []
-			// 	console.log(typeof resBody)
-			// 	for ( var i = 0; i < resBody.length; i++ ) {
-			// 		hashtagArray.push(resBody[i].text.match(/#\w+/g))
-			// 	}
-			// 	return hashtagArray
-			// }
-			// createHashtagArray(res.body)
-
-			var hashtagArray = []
-			for ( var i = 0; i < res.body.length; i++ ) {
-				hashtagArray.push(res.body[i].text.match(/#\w+/g))
-			}
+      var hashtagArray = extractHashtags(res.body)
 
 			// create hashtagCounts object
 			var hashtagCounts = {}
