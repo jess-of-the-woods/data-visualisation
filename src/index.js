@@ -7,7 +7,7 @@ $(document).ready(function() {
 		.get('/tweets')
 		.end(function(err, res){
 			//console.log('res.body: ', res.body)
-			$('#tweetsDiv2').append('<h3>Hardcoded tweet results..</h3>')
+			$('#tweetsDiv2Header').append('<h3>Tweet results ( hardcoded hashtag )..</h3>')
 			for (var i = 0; i < res.body.length; i++) {
 				$('#tweetsDiv2').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
 			}
@@ -31,9 +31,9 @@ $(document).ready(function() {
 			// create hashtagCounts object
 			var hashtagCounts = {}
 			for (var i = 0; i < hashtagArray.length; i++) {
-				console.log('this is hashtagArray: ', hashtagArray)
+				// console.log('this is hashtagArray: ', hashtagArray)
 				var hashtagSubArray = hashtagArray[i]
-				console.log('this is hashtagSubArray: ', hashtagSubArray)
+				// console.log('this is hashtagSubArray: ', hashtagSubArray)
 				for(var j = 0; j < hashtagSubArray.length; j++) {
 					var hashtag = hashtagSubArray[j]
 					if (hashtagCounts[hashtag]){
@@ -44,7 +44,6 @@ $(document).ready(function() {
 					}
 				}
 			}
-
 
 			// create hashtagCountArray from hashtagCounts object
 			var hashtagCountArray = [];
@@ -69,7 +68,6 @@ $(document).ready(function() {
 			// calls pieChart function and passes it 'sortedHashTagCountArray', sliced at 16th item as data, & id #pieChart as place to mount it.
 			pieChart(sortedHashTagCountArray.slice(0,16), '#pieChart')
 
-
 			//========= render search results ( tweets )
 			$('#hashtagForm').submit(function(e){
 				e.preventDefault()
@@ -82,9 +80,9 @@ $(document).ready(function() {
        				console.log("Error: " + error);
     				}
 						else {
-							$('#searchResult').html('Search Results:' + ' ' + '#' + value)
+							$('#tweetContainer').prepend('<h3 id="searchResult">Search Results:' + ' ' + '#' + value + '</h3>')
 							for (var w in res.body) {
-								$('#tweetsDiv').append('<p>' + res.body[w].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
+								$('#tweetsDiv').append('<p>' + res.body[w].text + ' ' + '<br>' +'User Name: ' + res.body[w].user.name + ' ' + 'Location: ' + res.body[w].user.location + '</p>')
 								}
 							$('#tweetsDiv').append('<h4>Yep yep, those are the tweets. You just saw em.</h4><br>')
 						}

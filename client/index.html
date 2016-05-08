@@ -17,60 +17,93 @@
 				margin-left: 15%;
 		}
 
-		#hashtagInput {
-			background-color: #8c8c8c;
-			height: 6%;
-			width: 22%;
-			border-style: none;
-		}
-
 		::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 			color: #333333;
 		}
 		::-moz-placeholder { /* Firefox 19+ */
 			color: #333333;
 		}
-		:-ms-input-placeholder { /* IE 10+ */
-			color: #333333;
+		:-ms-input-placeholder { /* IE 10+ */*/
+			color: #333333;*/
 		}
 		:-moz-placeholder { /* Firefox 18- */
 			color: #333333;
 		}
 
-		#submitButton {
-			background-color: #666666;
-			text-align: center;
-			color: #333333;
-			height: 1.5%;
-			width: 20%;
+		#hashtagInput {
+			background-color: #8c8c8c;
+			height: 32px;
+			width: 22%;
 			border-style: none;
 		}
 
 
-		#hashtagAssociates {
-			margin-left: 15%;
+		#submitButton {
+			background-color: #666666;
+			text-align: center;
+			color: #333333;
+			height: 32px;
+			width: 20%;
+			border-style: none;
 		}
+
+		#tweetContainer {
+
+		}
+
+		#tweetsDiv, #tweetsDiv2 {
+			height: 200px;
+			width:80%;
+			margin: 4px;
+			border:1px solid #595853;
+			padding: 6px;
+			overflow:auto;
+		}
+
+		#tweetsDiv, #tweetsDiv2 p {
+		  color: #bbb;
+			font-size: .9em;
+		}
+
+		#tweetsDiv:empty {
+  		display:none;
+		}
+
+		#tweetsDiv2Header {
+				margin-top: 10px;
+		}
+
 		#pieChart {
 			margin-left: 30%;
 			margin-right: 15%;
 			padding-bottom: 3%;
 		}
+
+		/*#hashtagAssociatesDiv {
+			display: block;
+		}*/
+
+		#hashtagAssociates {
+			margin-left: 15%;
+			color: #bbb;
+		}
 	</style>
 </head>
 <body>
   <h1>Tweet Visualisation Project</h1>
-	<div class="container">
+	<div>
 		<form id='hashtagForm' action='/tweets' method='post'>
 			<input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.."></input>
 			<input id='submitButton' type='submit' value='submit'></input>
 		</form>
 	</div>
-	<div class="container">
-		<h3 id='searchResult'></h3>
+	<div id='tweetContainer' class="container">
 		<div id="tweetsDiv"></div>
+		<div id='tweetsDiv2Header'></div>
 		<div id="tweetsDiv2"></div>
 		<br>
 	</div>
+	<body></body>
 	<div>
 	<div id='hashtagAssociatesDiv' class="container">
 		<div id='pieChart'></div>

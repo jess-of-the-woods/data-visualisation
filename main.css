@@ -39,3 +39,7 @@ h1 {
   margin-right: 10%;
   padding-bottom: 3%;
 }
+
+#tweetsDiv, #tweetsDiv2 p {
+  color: #bbb;
+}
