@@ -20,7 +20,6 @@ function renderSortedHashtags ( sortedHashTagCountArray ) {
 function clearCurrentData() {
   $('#tweetsHeader').hide();
   $('#tweetsDiv').hide();
-  // $('#hashtagAssociatesDiv').empty();
   $('#pieChart').empty();
   $('#hashtagAssociates').empty();
 }
@@ -39,9 +38,7 @@ $(document).ready(function() {
       renderSortedHashtags( sortedHashTagCountArray )
 
     })
-			// pieChart(sortedHashTagCountArray.slice(0,16), '#pieChart')
 
-	//========= render search results ( tweets )
 	$('#hashtagForm').submit(function(e){
 		e.preventDefault()
 		var value = $('#hashtagInput').val()

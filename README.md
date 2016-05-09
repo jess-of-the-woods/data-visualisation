@@ -1,5 +1,5 @@
 # data-visualisation project
 
-visualising tweets pulled from twitter
+visualising hashtags of tweets pulled from twitter
 
-'npm start' to run
+'npm i' then 'npm start' to run
