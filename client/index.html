@@ -3,105 +3,26 @@
 <head>
 	<title>Tweet Visualisation Project</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-	<style>
-		body {
-			background-color: #474640;
-			color: #8c8c8c;
-		}
-		h1 {
-			margin-top: 2.5%;
-			margin-left: 2.5%;
-		}
-		#hashtagForm {
-				margin-left: 15%;
-		}
-
-		::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-			color: #333333;
-		}
-		::-moz-placeholder { /* Firefox 19+ */
-			color: #333333;
-		}
-		:-ms-input-placeholder { /* IE 10+ */*/
-			color: #333333;*/
-		}
-		:-moz-placeholder { /* Firefox 18- */
-			color: #333333;
-		}
-
-		#hashtagInput {
-			background-color: #8c8c8c;
-			height: 32px;
-			width: 22%;
-			border-style: none;
-		}
-
-
-		#submitButton {
-			background-color: #666666;
-			text-align: center;
-			color: #333333;
-			height: 32px;
-			width: 20%;
-			border-style: none;
-		}
-
-		#tweetContainer {
-
-		}
-
-		#tweetsDiv, #tweetsDiv2 {
-			height: 200px;
-			width:80%;
-			margin: 4px;
-			border:1px solid #595853;
-			padding: 6px;
-			overflow:auto;
-		}
-
-		#tweetsDiv, #tweetsDiv2 p {
-		  color: #bbb;
-			font-size: .9em;
-		}
-
-		#tweetsDiv:empty {
-  		display:none;
-		}
-
-		#tweetsDiv2Header {
-				margin-top: 10px;
-		}
-
-		#pieChart {
-			margin-left: 30%;
-			margin-right: 15%;
-			padding-bottom: 3%;
-		}
-
-		/*#hashtagAssociatesDiv {
-			display: block;
-		}*/
-
-		#hashtagAssociates {
-			margin-left: 15%;
-			color: #bbb;
-		}
-	</style>
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"> -->
+	<link rel="stylesheet" type="text/css" href="./skeleton-2.0.4.css">
+	<link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 <body>
-  <h1>Tweet Visualisation Project</h1>
+  <h1>Tweet Visualisation</h1>
 	<div>
 		<form id='hashtagForm' action='/tweets' method='post'>
 			<input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.."></input>
-			<input id='submitButton' type='submit' value='submit'></input>
+			<input id='submitButton' class='button button-primary'type='submit' value='submit'></input>
 		</form>
 	</div>
 	<div id='tweetContainer' class="container">
-		<div id="tweetsDiv"></div>
-		<div id='tweetsDiv2Header'></div>
-		<div id="tweetsDiv2"></div>
-		<br>
+		<div class="row">
+			<div id="userSubmittedTweetsHeader"></div>
+			<div id="userSubmittedTweets" class="nine columns"></div>
+			<div id="tweetsHeader"></div>
+			<div id="tweetsDiv" class="nine columns"></div>
+			<br>
+		</div>
 	</div>
 	<body></body>
 	<div>
