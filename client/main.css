@@ -79,6 +79,13 @@ h1 {
   padding-bottom: 3%;
 }
 
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+
 /*#hashtagAssociatesDiv {
   display: block;
 }*/

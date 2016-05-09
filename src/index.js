@@ -54,8 +54,8 @@ $(document).ready(function() {
 			else {
         clearCurrentData()
 				$('#userSubmittedTweetsHeader').prepend('<h3 class="ten columns" id="searchResult">Search Results:' + ' ' + '#' + value + '</h3>')
-				for (var w in res.body) {
-					$('#userSubmittedTweets').append('<p>' + res.body[w].text + ' ' + '<br>' +'User Name: ' + res.body[w].user.name + ' ' + 'Location: ' + res.body[w].user.location + '</p>')
+				for (var tweet in res.body) {
+					$('#userSubmittedTweets').append('<p>' + res.body[tweet].text + ' ' + '<br>' +'User Name: ' + res.body[tweet].user.name + ' ' + 'Location: ' + res.body[tweet].user.location + '</p>')
 					}
 				$('#userSubmittedTweets').append('<h4>Yep yep, those are the tweets. You just saw em.</h4><br>')
         var sortedHashTagCountArray =  analyseHashtags(res.body)
@@ -65,4 +65,4 @@ $(document).ready(function() {
 			} // close else
 		}) // close .end
 	}) // close listener
-})
+}) // close document ready
