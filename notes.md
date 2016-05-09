@@ -1,8 +1,12 @@
 Notes:
 
-browserify and render to DOM (debug browserify process.. huge file, lags, browser console errors)
+-[x] get searched for queries running through analysis & rendering in pie chart
+-[ ] get labels rendering on donutChart
+-[ ] get all tweets from a user, graph by hashtag (love Tabby)
 
-'npm start' to start, logs to console
+
+______________
+
 
 1. get more tweets from twitter based on location..
 into an array.
@@ -36,16 +40,11 @@ ________
 with some search queries (e.g. #feminism), zeroth array element is null..
 index.js:24 Uncaught TypeError: Cannot read property 'length' of null
 
-```
+
 for (var i = 0; i < hashtagArray.length; i++) {
   var hashtagSubArray = hashtagArray[i]
 }
-`
+
 Problem not happening anymore..
 
 _____
-
-
-* get searched for queries running through analysis & rendering in pie chart --DONE
-
-* get all users tweets, graph by hashtag (love Tabby)
