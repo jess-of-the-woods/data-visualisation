@@ -13,6 +13,7 @@
       // console.log('this is hashtagArray: ', hashtagArray)
       var hashtagSubArray = hashtagArray[i]
       // console.log('this is hashtagSubArray: ', hashtagSubArray)
+      // console.log('this is hashtagSubArray: ', hashtagSubArray)
       for(var j = 0; j < hashtagSubArray.length; j++) {
         var hashtag = hashtagSubArray[j]
         if (hashtagCounts[hashtag]){
