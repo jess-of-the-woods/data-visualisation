@@ -5,7 +5,6 @@ var hashtagAnalysis = require('./hashtagAnalysis')
 
 function renderSortedHashtags ( sortedHashTagCountArray ) {
   $('#hashtagAssociatesDiv').prepend('<h5 id="hashtagsHeader">Associated Hashtags:</h5><br>')
-  console.log('hashtagsHeader')
   for (var hashtag = 0; hashtag < sortedHashTagCountArray.slice(0,16).length; hashtag++) {
       $('#hashtagAssociates').append(sortedHashTagCountArray[hashtag].hashtag + ': ' + sortedHashTagCountArray[hashtag].count + '<br>')
   }

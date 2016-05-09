@@ -40,9 +40,12 @@ index.js:24 Uncaught TypeError: Cannot read property 'length' of null
 for (var i = 0; i < hashtagArray.length; i++) {
   var hashtagSubArray = hashtagArray[i]
 }
-`_____
+`
+Problem not happening anymore..
+
+_____
 
 
-* get searched for queries running through analysis & rendering in pie chart
+* get searched for queries running through analysis & rendering in pie chart --DONE
 
 * get all users tweets, graph by hashtag (love Tabby)
