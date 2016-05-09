@@ -21,6 +21,8 @@ function clearCurrentData() {
   $('#tweetsHeader').hide();
   $('#tweetsDiv').hide();
   $('#pieChart').empty();
+  $('#userSubmittedTweetsHeader').empty();
+  $('#userSubmittedTweets').empty();
   $('#hashtagAssociates').empty();
 }
 
