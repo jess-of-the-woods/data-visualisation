@@ -1,4 +1,4 @@
-# data-visualisation project
+# tweet visualisation project
 
 visualising hashtags of tweets pulled from twitter
 
