@@ -29,7 +29,7 @@ function getTweets(hashTag, geoCode, callback) {
 
 app.get('/tweets', function(req, res){
   var wgtnGeoCode = "-41.28648,174.776217,750km"
-  getTweets('#swampy', wgtnGeoCode, function(tweetStatuses) {
+  getTweets('#wellington', wgtnGeoCode, function(tweetStatuses) {
     res.json(tweetStatuses)
   })
 })
