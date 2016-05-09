@@ -2,7 +2,7 @@ var d3 = require('d3')
 
 
 module.exports = function(data, root) {
-  var color = d3.scale.category20()
+  var color = d3.scale.category20b()
 
   var arc = d3.svg.arc()
       .outerRadius(200 - 10)
@@ -20,7 +20,8 @@ module.exports = function(data, root) {
 
     var g = svg.selectAll(".arc")
         .data(pie(data))
-        .enter().append("g")
+        .enter()
+        .append("g")
           .attr("class", "arc");
 
       g.append("path")
