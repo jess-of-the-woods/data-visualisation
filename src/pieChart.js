@@ -35,18 +35,18 @@ console.log(pie(data))
           .attr("d", arc)
           .style("fill", function(d) { return color(d.data.hashtag); });
 
-    function midAngle(d){
-    		return d.startAngle + (d.endAngle - d.startAngle)/2;
-    }
+    // function midAngle(d){
+    // 		return d.startAngle + (d.endAngle - d.startAngle)/2;
+    // }
 
-      g.append('polyline')
-          .attr('points', function(d){
-            // pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-            return [
-              arc.centroid(d),
-              outerArc.centroid(d)
-              // pos
-            ]
-          })
+      // g.append('polyline')
+      //     .attr('points', function(d){
+      //       // pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+      //       return [
+      //         arc.centroid(d),
+      //         outerArc.centroid(d)
+      //         // pos
+      //       ]
+      // })
 
 }
