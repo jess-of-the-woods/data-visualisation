@@ -4,6 +4,7 @@ body {
 }
 
 h1 {
+  opacity: .7;
   margin-top: 2.5%;
   margin-left: 2.5%;
 }
@@ -79,11 +80,15 @@ h1 {
   padding-bottom: 3%;
 }
 
-polyline{
+polyline {
 	opacity: .3;
 	stroke: black;
 	stroke-width: 2px;
 	fill: none;
+}
+
+text {
+  fill: #8c8c8c;
 }
 
 /*#hashtagAssociatesDiv {

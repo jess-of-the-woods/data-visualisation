@@ -36,7 +36,7 @@ $(document).ready(function() {
 			}
 
       var sortedHashTagCountArray = analyseHashtags( res.body )
-      pieChart(sortedHashTagCountArray.slice(0,6), '#pieChart')
+      pieChart(sortedHashTagCountArray.slice(0,7), '#pieChart')
       renderSortedHashtags( sortedHashTagCountArray )
     })
 
@@ -56,10 +56,10 @@ $(document).ready(function() {
 				for (var tweet in res.body) {
 					$('#userSubmittedTweets').append('<p>' + res.body[tweet].text + ' ' + '<br>' +'User Name: ' + res.body[tweet].user.name + ' ' + 'Location: ' + res.body[tweet].user.location + '</p>')
 					}
-				$('#userSubmittedTweets').append('<h4>Yep yep, those are the tweets. You just saw em.</h4><br>')
+				$('#userSubmittedTweets').append('<h6>Yep yep, those are the tweets. You just saw em.</h6>')
         var sortedHashTagCountArray =  analyseHashtags(res.body)
         renderSortedHashtags( sortedHashTagCountArray )
-        pieChart(sortedHashTagCountArray.slice(0,6), '#pieChart')
+        pieChart(sortedHashTagCountArray.slice(0,7), '#pieChart')
 			}
 		})
 	})

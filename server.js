@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 })
 
 function getTweets(hashTag, geoCode, callback) {
-  var queryParams = {q: hashTag, lang: 'en', count: 20, /*geocode: geoCode*/}
+  var queryParams = {q: hashTag, lang: 'en', count: 20, geocode: geoCode}
   client.get('search/tweets', queryParams, function(error, tweets, response) {
     if (error) console.log(error);
     callback(tweets.statuses)
@@ -28,7 +28,7 @@ function getTweets(hashTag, geoCode, callback) {
 
 app.get('/tweets', function(req, res){
   var wgtnGeoCode = "-41.28648,174.776217,750km"
-  getTweets('#wellington', wgtnGeoCode, function(tweetStatuses) {
+  getTweets('#happy', wgtnGeoCode, function(tweetStatuses) {
     res.json(tweetStatuses)
   })
 })
