@@ -43,9 +43,11 @@ $(document).ready(function() {
 	$('#hashtagForm').submit(function(e){
 		e.preventDefault()
 		var value = $('#hashtagInput').val()
+    var geoCode = $('#regionGeoCode').val()
+    console.log('this is value: ', value)
 		request
 		.post('/tweets')
-		.send('#' + value)
+		.send({hashtag: '#' + value, geocode: geoCode})
 		.end(function( error, res ){
 			if(error) {
  				console.log("Error: " + error);

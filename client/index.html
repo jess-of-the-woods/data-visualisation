@@ -10,15 +10,15 @@
 <body>
   <h1>Tweet Visualisation</h1>
 	<div>
-		<form id='hashtagForm' action='/tweets' method='post'>
+		 <!-- action='/tweets' method='post' -->
+		<form id='hashtagForm'>
 			<input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.."></input>
 			<input id='submitButton' class='button button-primary'type='submit' value='submit'></input>
 		</form>
-		<select name="carlist" form="hashtagForm">
-		  <option value="auckland">Auckland</option>
-		  <option value="wellington">Wellington</option>
-		  <option value="rotorua">Rotorua</option>
-  		<!-- <option value="audi">Audi</option> -->
+		<select id="regionGeoCode" name="geoCodeList" form="hashtagForm">
+		  <option value="aucklandGeoCode">Auckland</option>
+			<option value="rotoruaGeoCode">Rotorua</option>
+		  <option value="wellingtonGeoCode">Wellington</option>
 		</select>
 	</div>
 	<div id='tweetContainer' class="container">

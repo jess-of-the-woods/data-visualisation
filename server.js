@@ -4,7 +4,7 @@ var Twitter = require('twitter');
 var bodyParser = require('body-parser')
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended:true }))
+app.use(bodyParser.json())
 app.use(express.static('client'));
 
 var client = new Twitter({
@@ -13,6 +13,12 @@ var client = new Twitter({
   access_token_key: process.env.ACCESS_TOKEN,
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
+
+var region = {
+  aucklandGeoCode: '36.8621448,174.5852818, 250km',
+  rotoruaGeoCode: '38.1856945,176.0371285,250km',
+  wellingtonGeoCode: "-41.28648,174.776217,250km"
+}
 
 app.get('/', function (req, res) {
     res.send('index.html')
@@ -27,16 +33,14 @@ function getTweets(hashTag, geoCode, callback) {
 }
 
 app.get('/tweets', function(req, res){
-  var wgtnGeoCode = "-41.28648,174.776217,250km"
-  var aucklandGeoCode = '36.8621448,174.5852818, 250km'
-  var rotoruaGeoCode = '38.1856945,176.0371285,250km'
-  getTweets('#happy', wgtnGeoCode, function(tweetStatuses) {
+  getTweets('#happy', region.wellingtonGeoCode, function(tweetStatuses) {
     res.json(tweetStatuses)
   })
 })
 
 app.post('/tweets', function(req, res){
-  var hashtagInput = Object.keys(req.body)[0]
+  // var hashtagInput = Object.keys(req.body)[0]
+  console.log('this is req: ', req)
   getTweets(hashtagInput, null, function(tweetStatuses) {
     res.json(tweetStatuses)
   })

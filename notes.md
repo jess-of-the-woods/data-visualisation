@@ -5,6 +5,10 @@ Notes:
 -[ ] get all tweets from a user, graph by hashtag (love Tabby)
 -[ ] geocodes for auckland.. rotorua etc. & drop down select on form
 
+ak : 36.8621448,174.5852818
+rotorua: 38.1856945,176.0371285, 
+
+
 ______________
 
 
