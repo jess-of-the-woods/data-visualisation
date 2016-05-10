@@ -17,7 +17,7 @@ module.exports = function(data, root) {
 
   var outerArc = d3.svg.arc()
       .outerRadius(160)
-      .innerRadius(130)
+      .innerRadius(140)
 
   var pie = d3.layout.pie()
       .sort(null) // disable sorting the data ( it is already sorted )
@@ -62,13 +62,13 @@ module.exports = function(data, root) {
       g.append('text')
         .attr("x", function(d){
           var pos = outerArc.centroid(d)
-          return pos[0] < 0 ? pos[0] - 14 : pos[0] + 14
+          return pos[0] < 0 ? pos[0] - 15 : pos[0] + 15
         })
         .attr("y", function(d){
           var pos = outerArc.centroid(d)
           return pos[1]
         })
-        .attr("dy", ".20em")
+        .attr("dy", ".35em")
         .style('text-anchor', function(d){
           var pos = outerArc.centroid(d)
           if (pos[0] > 0){

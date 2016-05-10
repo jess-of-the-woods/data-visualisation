@@ -31,12 +31,12 @@ $(document).ready(function() {
 		.get('/tweets')
 		.end(function(err, res){
 			$('#tweetsHeader').append('<h3 class="ten columns">Tweet results ( hardcoded hashtag )..</h3>')
-			for (var i = 0; i < res.body.length; i++) {
-				$('#tweetsDiv').append('<p>' + res.body[i].text + ' ' + '<br>' +'User Name: ' + res.body[i].user.name + ' ' + 'Location: ' + res.body[i].user.location + '</p>')
+			for (var tweet = 0; tweet < res.body.length; tweet++) {
+				$('#tweetsDiv').append('<p>' + res.body[tweet].text + ' ' + '<br>' +'User Name: ' + res.body[tweet].user.name + ' ' + 'Location: ' + res.body[tweet].user.location + '</p>')
 			}
 
       var sortedHashTagCountArray = analyseHashtags( res.body )
-      pieChart(sortedHashTagCountArray.slice(0,7), '#pieChart')
+      pieChart( sortedHashTagCountArray.slice(0,7), '#pieChart' )
       renderSortedHashtags( sortedHashTagCountArray )
     })
 
