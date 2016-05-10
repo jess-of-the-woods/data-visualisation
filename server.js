@@ -15,16 +15,15 @@ var client = new Twitter({
 });
 
 app.get('/', function (req, res) {
-    res.send('index.html');
-
-}); // close app.get
+    res.send('index.html')
+})
 
 function getTweets(hashTag, geoCode, callback) {
   var queryParams = {q: hashTag, lang: 'en', count: 20, /*geocode: geoCode*/}
   client.get('search/tweets', queryParams, function(error, tweets, response) {
     if (error) console.log(error);
     callback(tweets.statuses)
-  }) // close client.get
+  })
 }
 
 app.get('/tweets', function(req, res){
@@ -35,12 +34,12 @@ app.get('/tweets', function(req, res){
 })
 
 app.post('/tweets', function(req, res){
-  var hashtagInput = Object.keys(req.body)[0] // grabs from form
+  var hashtagInput = Object.keys(req.body)[0]
   getTweets(hashtagInput, null, function(tweetStatuses) {
     res.json(tweetStatuses)
   })
 })
 
 app.listen(3000, function () {
-  console.log('Tweet visualisation galloping along on port 3000!');
+  console.log('Tweet visualisation galloping along on port 3000!')
 });

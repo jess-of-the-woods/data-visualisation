@@ -36,9 +36,8 @@ $(document).ready(function() {
 			}
 
       var sortedHashTagCountArray = analyseHashtags( res.body )
-      pieChart(sortedHashTagCountArray.slice(0,16), '#pieChart')
+      pieChart(sortedHashTagCountArray.slice(0,6), '#pieChart')
       renderSortedHashtags( sortedHashTagCountArray )
-
     })
 
 	$('#hashtagForm').submit(function(e){
@@ -59,10 +58,9 @@ $(document).ready(function() {
 					}
 				$('#userSubmittedTweets').append('<h4>Yep yep, those are the tweets. You just saw em.</h4><br>')
         var sortedHashTagCountArray =  analyseHashtags(res.body)
-        // console.log('sortedHashTagCountArray: ', sortedHashTagCountArray)
         renderSortedHashtags( sortedHashTagCountArray )
-        pieChart(sortedHashTagCountArray.slice(0,16), '#pieChart')
-			} // close else
-		}) // close .end
-	}) // close listener
-}) // close document ready
+        pieChart(sortedHashTagCountArray.slice(0,6), '#pieChart')
+			}
+		})
+	})
+})
