@@ -1,7 +1,7 @@
 Notes:
 
 -[x] get searched for queries running through analysis & rendering in pie chart
--[ ] get labels rendering on donutChart
+-[x] get labels rendering on donutChart
 -[ ] get all tweets from a user, graph by hashtag (love Tabby)
 -[ ] geocodes for auckland.. rotorua etc. & drop down select on form
 

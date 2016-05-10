@@ -27,7 +27,9 @@ function getTweets(hashTag, geoCode, callback) {
 }
 
 app.get('/tweets', function(req, res){
-  var wgtnGeoCode = "-41.28648,174.776217,750km"
+  var wgtnGeoCode = "-41.28648,174.776217,250km"
+  var aucklandGeoCode = '36.8621448,174.5852818, 250km'
+  var rotoruaGeoCode = '38.1856945,176.0371285,250km'
   getTweets('#happy', wgtnGeoCode, function(tweetStatuses) {
     res.json(tweetStatuses)
   })
