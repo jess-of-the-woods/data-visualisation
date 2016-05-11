@@ -10,12 +10,12 @@
 <body>
   <h1>Tweet Visualisation</h1>
 	<div>
-		 <!-- action='/tweets' method='post' -->
 		<form id='hashtagForm'>
 			<input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.."></input>
 			<input id='submitButton' class='button button-primary'type='submit' value='submit'></input>
 		</form>
 		<select id="regionGeoCode" name="geoCodeList" form="hashtagForm">
+			<option value="none">No region</option>
 		  <option value="aucklandGeoCode">Auckland</option>
 			<option value="rotoruaGeoCode">Rotorua</option>
 		  <option value="wellingtonGeoCode">Wellington</option>

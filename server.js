@@ -15,9 +15,10 @@ var client = new Twitter({
 });
 
 var region = {
-  aucklandGeoCode: '36.8621448,174.5852818, 250km',
-  rotoruaGeoCode: '38.1856945,176.0371285,250km',
-  wellingtonGeoCode: "-41.28648,174.776217,250km"
+  aucklandGeoCode: '"-36.8621448,174.5852818,250km"',
+  rotoruaGeoCode: '"-38.1856945,176.0371285,250km"',
+  wellingtonGeoCode: '"-41.28648,174.776217,250km"',
+  none: null
 }
 
 app.get('/', function (req, res) {
@@ -39,10 +40,12 @@ app.get('/tweets', function(req, res){
 })
 
 app.post('/tweets', function(req, res){
-  // var hashtagInput = Object.keys(req.body)[0]
-  console.log('this is req: ', req)
-  getTweets(hashtagInput, null, function(tweetStatuses) {
+  var hashtagInput = req.body.hashtag
+  var geocodeInput = req.body.geocode
+  var location = region[geocodeInput]
+  getTweets(hashtagInput, location, function(tweetStatuses) {
     res.json(tweetStatuses)
+    console.log('location', location)
   })
 })
 

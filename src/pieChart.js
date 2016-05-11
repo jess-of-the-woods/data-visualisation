@@ -42,7 +42,7 @@ module.exports = function(data, root) {
       g.append('polyline')
           .attr('points', function(d){
             var pos = outerArc.centroid(d)
-            console.log(pos)
+            // console.log(pos)
             if (pos[0] < 0) {
               pos[0] -= 14
             }
