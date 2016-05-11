@@ -12,8 +12,9 @@ function searchByAssociatedHashtag(value){
       console.log(error)
     }
     else{
-      console.log('this is hashtag: ', value)
-      console.log('this is res.body: ', res.body)
+      // console.log('this is hashtag: ', value)
+      // console.log('this is res.body: ', res.body)
+      
       //clearCurrentData()  // will this work w/out being required in??
       // should I put function inside hashtagAnalysis & rename to helper fn's?
 
