@@ -1,3 +1,13 @@
+var $               = require('jquery')
+
+function analyseHashtags (tweets) {
+  var hashtagArray = extractHashtags(tweets)
+  var hashtagCounts = createHashtagObject( hashtagArray )
+  var hashtagCountArray = createHashtagCountArray( hashtagCounts )
+  var sortedHashTagCountArray = sortHashtagCountArray( hashtagCountArray )
+  return sortedHashTagCountArray
+}
+
 function extractHashtags( tweets ) {
   var hashtagArray = []
   for ( var i = 0; i < tweets.length; i++ ) {
@@ -49,9 +59,27 @@ function sortHashtagCountArray ( hashtagCountArray ){
   return sortedHashTagCountArray
 }
 
+function clearCurrentData() {
+  $('#tweetsHeader').hide();
+  $('#tweetsDiv').hide();
+  $('#pieChart').empty();
+  $('#userSubmittedTweetsHeader').empty();
+  $('#userSubmittedTweets').empty();
+  $('#hashtagAssociates').empty();
+}
+
+function renderSortedHashtags ( sortedHashTagCountArray ) {
+  for (var hashtag = 0; hashtag < sortedHashTagCountArray.slice(0,16).length; hashtag++) {
+      $('#hashtagAssociates').append(sortedHashTagCountArray[hashtag].hashtag + ': ' + sortedHashTagCountArray[hashtag].count + '<br>')
+  }
+}
+
 module.exports = {
-extractHashtags: extractHashtags,
-createHashtagObject: createHashtagObject,
-createHashtagCountArray: createHashtagCountArray,
-sortHashtagCountArray: sortHashtagCountArray
+// extractHashtags: extractHashtags,
+// createHashtagObject: createHashtagObject,
+// createHashtagCountArray: createHashtagCountArray,
+// sortHashtagCountArray: sortHashtagCountArray,
+clearCurrentData: clearCurrentData,
+renderSortedHashtags: renderSortedHashtags,
+analyseHashtags: analyseHashtags
 }

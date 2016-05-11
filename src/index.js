@@ -1,30 +1,9 @@
 var $               = require('jquery')
 var request         = require('superagent');
 var pieChart        = require('./pieChart')
-var hashtagAnalysis = require('./hashtagAnalysis')
+var helpers = require('./helpers')
 
-function analyseHashtags (tweets) {
-  var hashtagArray = hashtagAnalysis.extractHashtags(tweets)
-  var hashtagCounts = hashtagAnalysis.createHashtagObject( hashtagArray )
-  var hashtagCountArray = hashtagAnalysis.createHashtagCountArray( hashtagCounts )
-  var sortedHashTagCountArray = hashtagAnalysis.sortHashtagCountArray( hashtagCountArray )
-  return sortedHashTagCountArray
-}
 
-function renderSortedHashtags ( sortedHashTagCountArray ) {
-  for (var hashtag = 0; hashtag < sortedHashTagCountArray.slice(0,16).length; hashtag++) {
-      $('#hashtagAssociates').append(sortedHashTagCountArray[hashtag].hashtag + ': ' + sortedHashTagCountArray[hashtag].count + '<br>')
-  }
-}
-
-function clearCurrentData() {
-  $('#tweetsHeader').hide();
-  $('#tweetsDiv').hide();
-  $('#pieChart').empty();
-  $('#userSubmittedTweetsHeader').empty();
-  $('#userSubmittedTweets').empty();
-  $('#hashtagAssociates').empty();
-}
 
 $(document).ready(function() {
 	request
@@ -35,9 +14,9 @@ $(document).ready(function() {
 				$('#tweetsDiv').append('<p>' + res.body[tweet].text + ' ' + '<br>' +'User Name: ' + res.body[tweet].user.name + ' ' + 'Location: ' + res.body[tweet].user.location + '</p>')
 			}
 
-      var sortedHashTagCountArray = analyseHashtags( res.body )
+      var sortedHashTagCountArray = helpers.analyseHashtags( res.body )
       pieChart( sortedHashTagCountArray.slice(0,7), '#pieChart' )
-      renderSortedHashtags( sortedHashTagCountArray )
+      helpers.renderSortedHashtags( sortedHashTagCountArray )
     })
 
 	$('#hashtagForm').submit(function(e){
@@ -52,14 +31,14 @@ $(document).ready(function() {
  				console.log("Error: " + error);
 			}
 			else {
-        clearCurrentData()
+        helpers.clearCurrentData()
 				$('#userSubmittedTweetsHeader').prepend('<h3 class="ten columns" id="searchResult">Search Results:' + ' ' + '#' + value + '</h3>')
 				for (var tweet in res.body) {
 					$('#userSubmittedTweets').append('<p>' + res.body[tweet].text + ' ' + '<br>' +'User Name: ' + res.body[tweet].user.name + ' ' + 'Location: ' + res.body[tweet].user.location + '</p>')
 				}
 				$('#userSubmittedTweets').append('<h6>Yep yep, those are the tweets. You just saw em.</h6>')
-        var sortedHashTagCountArray =  analyseHashtags(res.body)
-        renderSortedHashtags( sortedHashTagCountArray )
+        var sortedHashTagCountArray =  helpers.analyseHashtags(res.body)
+        helpers.renderSortedHashtags( sortedHashTagCountArray )
         pieChart(sortedHashTagCountArray.slice(0,7), '#pieChart')
 			}
 		})
