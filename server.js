@@ -15,9 +15,10 @@ var client = new Twitter({
 });
 
 var region = {
-  aucklandGeoCode: '"-36.8621448,174.5852818,250km"',
+  tamakiMakaurauGeoCode: '"-36.8621448,174.5852818,250km"',
   rotoruaGeoCode: '"-38.1856945,176.0371285,250km"',
-  wellingtonGeoCode: '"-41.28648,174.776217,250km"',
+  ponekeGeoCode: '"-41.28648,174.776217,250km"',
+  otautahiGeoCode: '"-43.5128022,172.4589935, 250km"',
   none: null
 }
 
@@ -34,7 +35,7 @@ function getTweets(hashTag, geoCode, callback) {
 }
 
 app.get('/tweets', function(req, res){
-  getTweets('#happy', region.wellingtonGeoCode, function(tweetStatuses) {
+  getTweets('#happy', region.ponekeGeoCode, function(tweetStatuses) {
     res.json(tweetStatuses)
   })
 })
