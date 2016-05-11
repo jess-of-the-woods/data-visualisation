@@ -12,8 +12,6 @@ function searchByAssociatedHashtag(value){
       console.log(error)
     }
     else{
-      // console.log('this is hashtag: ', value)
-      // console.log('this is res.body: ', res.body)
       helpers.clearCurrentData()
       $('#userSubmittedTweetsHeader').prepend('<h3 class="ten columns" id="searchResult">Search Results:' + ' ' + value + '</h3>')
 

@@ -4,7 +4,8 @@ Notes:
 -[x] get labels rendering on donutChart
 -[ ] get all tweets from a user, graph by hashtag (love Tabby)
 -[x] geocodes for auckland.. rotorua etc. & drop down select on form
--[ ] rename getUserInputFromPieClicks file, possibly move a bunch of code from index.js into it (and require into index.js)
+-[x] rename getUserInputFromPieClicks file, possibly move a bunch of code from index.js into it (and require into index.js)
+
 
 ______________
 
