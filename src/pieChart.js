@@ -1,5 +1,5 @@
 var d3 = require('d3')
-
+var searchByAssociatedHashtag = require('./getUserInputFromPieClicks')
 
 module.exports = function(data, root) {
   var color = d3.scale.category20b() // sets the color palette
@@ -33,11 +33,8 @@ module.exports = function(data, root) {
 
       g.append("path")
           .attr("d", arc)
+          // .attr("d", )
           .style("fill", function(d) { return color(d.data.hashtag); });
-
-    // function midAngle(d){
-    // 		return d.startAngle + (d.endAngle - d.startAngle)/2;
-    // }
 
       g.append('polyline')
           .attr('points', function(d){
@@ -77,9 +74,13 @@ module.exports = function(data, root) {
           else {
             return 'end'
           }
-
         })
         .text(function(d) {
           return d.data.hashtag;
         });
+
+        g.on('click', function(d){
+          // console.log('d.data.hashtag: ', d.data.hashtag)
+          searchByAssociatedHashtag(d.data.hashtag)
+        })
 }

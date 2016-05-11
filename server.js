@@ -42,13 +42,14 @@ app.get('/tweets', function(req, res){
 app.post('/tweets', function(req, res){
   var hashtagInput = req.body.hashtag
   var geocodeInput = req.body.geocode
+  // console.log('this is geocodeInput', geocodeInput)
   var location = region[geocodeInput]
+  // console.log('this is location', location)
   getTweets(hashtagInput, location, function(tweetStatuses) {
     res.json(tweetStatuses)
-    console.log('location', location)
   })
 })
 
 app.listen(3000, function () {
-  console.log('Tweet visualisation galloping along on port 3000!')
+  console.log('Tweet visualisation scuttling along on the 3000th port. Yea..')
 });

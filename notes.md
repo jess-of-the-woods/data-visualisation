@@ -4,7 +4,7 @@ Notes:
 -[x] get labels rendering on donutChart
 -[ ] get all tweets from a user, graph by hashtag (love Tabby)
 -[x] geocodes for auckland.. rotorua etc. & drop down select on form
-
+-[ ] rename getUserInputFromPieClicks file, possibly move a bunch of code from index.js into it (and require into index.js)
 ak : 36.8621448,174.5852818
 rotorua: 38.1856945,176.0371285,
 

@@ -56,7 +56,7 @@ $(document).ready(function() {
 				$('#userSubmittedTweetsHeader').prepend('<h3 class="ten columns" id="searchResult">Search Results:' + ' ' + '#' + value + '</h3>')
 				for (var tweet in res.body) {
 					$('#userSubmittedTweets').append('<p>' + res.body[tweet].text + ' ' + '<br>' +'User Name: ' + res.body[tweet].user.name + ' ' + 'Location: ' + res.body[tweet].user.location + '</p>')
-					}
+				}
 				$('#userSubmittedTweets').append('<h6>Yep yep, those are the tweets. You just saw em.</h6>')
         var sortedHashTagCountArray =  analyseHashtags(res.body)
         renderSortedHashtags( sortedHashTagCountArray )
@@ -64,4 +64,9 @@ $(document).ready(function() {
 			}
 		})
 	})
+
+  var geoCode = $('#regionGeoCode').val()
+
+// click on arc, does arc contain certain hashtag, if so declare twitter request contents to server, send req to post route in server w same geocode as specified
+
 })
