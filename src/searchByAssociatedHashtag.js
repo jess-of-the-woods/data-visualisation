@@ -1,6 +1,7 @@
 var request         = require('superagent');
 var $               = require('jquery')
-var helpers = require('./helpers')
+var helpers         = require('./helpers')
+
 
 function searchByAssociatedHashtag(value){
   var location = 'none'
@@ -23,9 +24,11 @@ function searchByAssociatedHashtag(value){
 
       var sortedHashTagCountArray =  helpers.analyseHashtags(res.body)
       helpers.renderSortedHashtags( sortedHashTagCountArray )
-      // pieChart(sortedHashTagCountArray.slice(0,7), '#pieChart')
+      pieChart(sortedHashTagCountArray.slice(0,7), '#pieChart')
     } // close else
   })
 }
 
 module.exports = searchByAssociatedHashtag
+
+var pieChart        = require('../src/pieChart')

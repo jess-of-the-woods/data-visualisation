@@ -33,6 +33,7 @@ h1 {
   width: 22%;
   border-style: none;
   box-sizing: border-box;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
   padding-left: 10px;
 }
 
@@ -51,10 +52,13 @@ h1 {
 
 /*=========== Tweets ====================*/
 
+
 #userSubmittedTweets, #tweetsDiv {
   height: 200px;
   margin: 4px;
   border:1px solid #595853;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
   padding: 6px;
   overflow:auto;
 }

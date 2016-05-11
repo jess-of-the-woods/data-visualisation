@@ -1,7 +1,7 @@
 var d3 = require('d3')
 var searchByAssociatedHashtag = require('./searchByAssociatedHashtag')
 
-module.exports = function(data, root) {
+ function pieChart(data, root) {
   var color = d3.scale.category20b() // sets the color palette
 
   var svg = d3.select(root).append('svg') // select root element (div where it will append), append svg element
@@ -84,3 +84,5 @@ module.exports = function(data, root) {
           searchByAssociatedHashtag(d.data.hashtag)
         })
 }
+
+module.exports = pieChart
