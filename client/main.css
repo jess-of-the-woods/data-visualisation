@@ -26,9 +26,7 @@ h1 {
   color: #333333;
 }
 
-/*#hashtagsHeader:empty {
-  display: none;
-}*/
+/*========== form ===========*/
 
 #hashtagInput {
   background-color: #8c8c8c;
@@ -50,6 +48,8 @@ h1 {
   width: 20%;
   border-style: none;
 }
+
+/*=========== Tweets ====================*/
 
 #userSubmittedTweets, #tweetsDiv {
   height: 200px;
@@ -75,9 +75,16 @@ h1 {
 #searchResult{
   margin: 10px;
 }
+
 #tweetsHeader {
     margin-top: 20px;
 }
+
+/*========== hashtags==========*/
+
+/*#hashtagsHeader:empty {
+  display: none;
+}*/
 
 #pieChart {
   margin-left: 30%;
