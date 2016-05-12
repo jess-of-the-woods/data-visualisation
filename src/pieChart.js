@@ -1,7 +1,6 @@
 var d3 = require('d3')
-var searchByAssociatedHashtag = require('./searchByAssociatedHashtag')
 
- function pieChart(data, root) {
+function pieChart(data, root) {
   var color = d3.scale.category20b() // sets the color palette
 
   var svg = d3.select(root).append('svg') // select root element (div where it will append), append svg element
@@ -25,64 +24,93 @@ var searchByAssociatedHashtag = require('./searchByAssociatedHashtag')
 
 // console.log(pie(data))
 
-    var g = svg.selectAll(".arc")
-        .data(pie(data))
-        .enter()
-        .append("g")
-          .attr("class", "arc");
+  var g = svg.selectAll(".arc")
+      .data(pie(data))
+      .enter()
+      .append("g")
+        .attr("class", "arc");
 
-      g.append("path")
-          .attr("d", arc)
-          // .attr("d", )
-          .style("fill", function(d) { return color(d.data.hashtag); });
+    g.append("path")
+        .attr("d", arc)
+        // .attr("d", )
+        .style("fill", function(d) { return color(d.data.hashtag); });
 
-      g.append('polyline')
-          .attr('points', function(d){
-            var pos = outerArc.centroid(d)
-            // console.log(pos)
-            if (pos[0] < 0) {
-              pos[0] -= 14
-            }
-            else {
-              pos[0] += 14
-            }
-            return [
-              arc.centroid(d),
-              outerArc.centroid(d),
-              pos
-            ]
-      })
-
-      var text = svg.select(".labels").selectAll("text")
-		    .data(pie(data));
-
-      g.append('text')
-        .attr("x", function(d){
+    g.append('polyline')
+        .attr('points', function(d){
           var pos = outerArc.centroid(d)
-          return pos[0] < 0 ? pos[0] - 15 : pos[0] + 15
-        })
-        .attr("y", function(d){
-          var pos = outerArc.centroid(d)
-          return pos[1]
-        })
-        .attr("dy", ".35em")
-        .style('text-anchor', function(d){
-          var pos = outerArc.centroid(d)
-          if (pos[0] > 0){
-            return 'start'
+          // console.log(pos)
+          if (pos[0] < 0) {
+            pos[0] -= 14
           }
           else {
-            return 'end'
+            pos[0] += 14
           }
+          return [
+            arc.centroid(d),
+            outerArc.centroid(d),
+            pos
+          ]
         })
-        .text(function(d) {
-          return d.data.hashtag;
-        });
 
-        g.on('click', function(d){
-          // console.log('d.data.hashtag: ', d.data.hashtag)
-          searchByAssociatedHashtag(d.data.hashtag)
-        })
+  var text = svg.select(".labels").selectAll("text")
+    .data(pie(data));
+
+  g.append('text')
+    .attr("x", function(d){
+      var pos = outerArc.centroid(d)
+      return pos[0] < 0 ? pos[0] - 15 : pos[0] + 15
+    })
+    .attr("y", function(d){
+      var pos = outerArc.centroid(d)
+      return pos[1]
+    })
+    .attr("dy", ".35em")
+    .style('text-anchor', function(d){
+      var pos = outerArc.centroid(d)
+      if (pos[0] > 0){
+        return 'start'
+      }
+      else {
+        return 'end'
+      }
+    })
+    .text(function(d) {
+      return d.data.hashtag;
+    });
+
+    g.on('click', function(d){
+      searchByAssociatedHashtag(d.data.hashtag)
+    })
+}
+
+var request         = require('superagent');
+var $               = require('jquery')
+var helpers         = require('./helpers')
+
+function searchByAssociatedHashtag(value){
+  var location = 'none'
+  request
+  .post('/tweets')
+  .send({hashtag: value, geocode: location})
+  .end(function(error, res){
+    if (error) {
+      console.log(error)
+    }
+    else{
+      helpers.clearCurrentData()
+      $('#userSubmittedTweetsHeader').prepend('<h3 class="ten columns" id="searchResult">Search Results:' + ' ' + value + '</h3>')
+
+      for (var tweet in res.body) {
+        $('#userSubmittedTweets').append('<p>' + res.body[tweet].text + ' ' + '<br>' +'User Name: ' + res.body[tweet].user.name + ' ' + 'Location: ' + res.body[tweet].user.location + '</p>')
+      }
+
+      $('#userSubmittedTweets').append('<h6>Yep yep, those are the tweets. You just saw em.</h6>')
+
+      var sortedHashTagCountArray =  helpers.analyseHashtags(res.body)
+      helpers.renderSortedHashtags( sortedHashTagCountArray )
+      pieChart(sortedHashTagCountArray.slice(0,7), '#pieChart')
+    } // close else
+  })
 }
 
 module.exports = pieChart

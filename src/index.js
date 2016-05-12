@@ -43,9 +43,5 @@ $(document).ready(function() {
 			}
 		})
 	})
-
   var geoCode = $('#regionGeoCode').val()
-
-// click on arc, does arc contain certain hashtag, if so declare twitter request contents to server, send req to post route in server w same geocode as specified
-
 })
