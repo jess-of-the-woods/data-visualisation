@@ -17,12 +17,10 @@ function extractHashtags( tweets ) {
 }
 
 function createHashtagObject ( hashtagArray ) {
-  // console.log('this is hashtagArray', hashtagArray)
   var hashtagCounts = {}
   for (var i = 0; i < hashtagArray.length; i++) {
     var hashtagSubArray = hashtagArray[i]
     if (!hashtagSubArray) { continue }
-    // console.log('this is hashtagSubArray: ', hashtagSubArray)
     for(var j = 0; j < hashtagSubArray.length; j++) {
       var hashtag = hashtagSubArray[j]
       if (hashtagCounts[hashtag]){
@@ -75,11 +73,7 @@ function renderSortedHashtags ( sortedHashTagCountArray ) {
 }
 
 module.exports = {
-// extractHashtags: extractHashtags,
-// createHashtagObject: createHashtagObject,
-// createHashtagCountArray: createHashtagCountArray,
-// sortHashtagCountArray: sortHashtagCountArray,
-analyseHashtags: analyseHashtags,
-clearCurrentData: clearCurrentData,
-renderSortedHashtags: renderSortedHashtags
+  analyseHashtags: analyseHashtags,
+  clearCurrentData: clearCurrentData,
+  renderSortedHashtags: renderSortedHashtags
 }

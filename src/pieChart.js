@@ -7,7 +7,7 @@ function pieChart(data, root) {
       .attr("width", 600)
       .attr("height", 450) // sets width/height of svg element
       .append("g")
-      .attr("transform", "translate(" + 225 + "," + 225 + ")"); // translates (shifts) chart (g element) to middle of svg element
+      .attr("transform", "translate(" + 300 + "," + 225 + ")"); // translates (shifts) chart (g element) to middle of svg element
        var width = 600, height = 450, radius = Math.min(width, height) / 2;
 
   var arc = d3.svg.arc() // defines the radius of the chart
@@ -82,6 +82,8 @@ function pieChart(data, root) {
       searchByAssociatedHashtag(d.data.hashtag)
     })
 }
+
+//=====================================================================
 
 var request         = require('superagent');
 var $               = require('jquery')
