@@ -1,9 +1,7 @@
 var $               = require('jquery')
 var request         = require('superagent');
 var pieChart        = require('./pieChart')
-var helpers = require('./helpers')
-
-
+var helpers 				= require('./helpers')
 
 $(document).ready(function() {
 	request
