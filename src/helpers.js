@@ -10,9 +10,9 @@ function analyseHashtags (tweets) {
 
 function extractHashtags( tweets ) {
   var hashtagArray = []
-  for ( var i = 0; i < tweets.length; i++ ) {
-    hashtagArray.push(tweets[i].text.match(/#\w+/g))
-  }
+  tweets.map(function(tweet){
+    return hashtagArray.push(tweet.text.match(/#\w+/g))
+  })
  return hashtagArray
 }
 
