@@ -1,4 +1,4 @@
-var d3 = require('d3')
+import d3 from 'd3'
 
 function pieChart(data, root) {
   var color = d3.scale.category20b() // sets the color palette
@@ -85,9 +85,9 @@ function pieChart(data, root) {
 
 //===============================-searchByAssociatedHashtag-======================================
 
-var request         = require('superagent');
-var $               = require('jquery')
-var helpers         = require('./helpers')
+import request from 'superagent'
+import $ from 'jquery'
+import helpers from './helpers'
 
 function searchByAssociatedHashtag(value){
   var location = 'none'
@@ -115,4 +115,4 @@ function searchByAssociatedHashtag(value){
   })
 }
 
-module.exports = pieChart
+export default pieChart
