@@ -6,7 +6,7 @@
   "browser": "src/index.js",
   "scripts": {
     "start": "budo . -d --serve bundle.js --live",
-    "run-server": "nodemon ./server.js",
+    "run-serve": "nodemon ./server.js",
     "build": "browserify . -o bundle.js -g uglifyify",
     "test": "browserify test.js | node | tap-spec",
     "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
@@ -51,6 +51,7 @@
     "cheerio": "^0.20.0",
     "cors": "^2.7.1",
     "d3": "^3.5.16",
+    "domready": "^1.0.8",
     "dotenv": "^2.0.0",
     "jquery": "^2.2.3",
     "promise": "^7.1.1",

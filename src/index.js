@@ -4,9 +4,10 @@ import pieChart from './pieChart'
 import * as helpers from './helpers'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import domready from 'domready'
 import App from './components/app'
 
-document.addEventListener("DOMContentLoaded", function() {
+domready (function(){
 	ReactDOM.render(
 			<App />, document.querySelector('#root')
 	)
@@ -48,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		})
 	})
   var geoCode = $('#regionGeoCode').val()
+})
 
-});
 
 // $(document).ready(function() {
 // })
