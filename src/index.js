@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			<App />, document.querySelector('#root')
 	)
 	request
-		.get('/tweets')
+		.get('http://localhost:3000/tweets')
 		.end(function(err, res){
 			$('#tweetsHeader').append('<h3 class="ten columns">Tweet results ( hardcoded hashtag )..</h3>')
 			res.body.map(function(tweet){

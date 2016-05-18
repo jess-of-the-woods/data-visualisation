@@ -1,4 +1,4 @@
-var $               = require('jquery')
+import $ from 'jquery'
 
 function analyseHashtags (tweets) {
   var hashtagArray = extractHashtags(tweets)

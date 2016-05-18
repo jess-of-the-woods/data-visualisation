@@ -15,11 +15,15 @@
   },
   "browserify": {
     "transform": [
-      ["babelify", {
-        "presets": [
-          "es2015", "react"
-        ]
-      }]
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
     ]
   },
   "repository": {
@@ -45,6 +49,7 @@
     "body-parser": "^1.15.0",
     "budo": "^8.2.2",
     "cheerio": "^0.20.0",
+    "cors": "^2.7.1",
     "d3": "^3.5.16",
     "dotenv": "^2.0.0",
     "jquery": "^2.2.3",

@@ -2,10 +2,12 @@ var express = require('express');
 require('dotenv').config();
 var Twitter = require('twitter');
 var bodyParser = require('body-parser')
+var cors = require ('cors')
 var app = express();
 
 app.use(bodyParser.json())
 app.use(express.static('client'));
+app.use(cors())
 
 var client = new Twitter({
   consumer_key: process.env.CONSUMER_KEY,
@@ -52,5 +54,5 @@ app.post('/tweets', function(req, res){
 })
 
 app.listen(3000, function () {
-  console.log('Tweet visualisation scuttling along on the 3000th port. Yea..')
+  console.log('Hashtag Web scuttling along on the 3000th port. Yep..')
 });
