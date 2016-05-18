@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import request from 'superagent'
 import pieChart from './pieChart'
-import helpers from './helpers'
+import * as helpers from './helpers'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/app'
