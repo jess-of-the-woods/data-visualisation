@@ -1,7 +1,14 @@
-var $               = require('jquery')
-var request         = require('superagent');
-var pieChart        = require('./pieChart')
-var helpers 				= require('./helpers')
+import $ from 'jquery'
+import request from 'superagent'
+import pieChart from './pieChart'
+import helpers from './helpers'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './components/app'
+
+ReactDOM.render(
+		<App />, document.querySelector('')
+)
 
 $(document).ready(function() {
 	request

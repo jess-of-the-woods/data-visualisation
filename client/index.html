@@ -7,37 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 <body>
-  <h1>Tweet Visualisation</h1>
-	<div>
-		<form id='hashtagForm'>
-			<input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.."></input>
-			<select id="regionGeoCode" name="geoCodeList" form="hashtagForm">
-				<option value="none">No region</option>
-				<option value="tamakiMakaurauGeoCode">Tamaki Makaurau - Auckland</option>
-				<option value="rotoruaGeoCode">Rotorua</option>
-				<option value="ponekeGeoCode">Poneke - Wellington</option>
-				<option value="otautahiGeoCode">Otautahi - Christchurch</option>
-			</select>
-			<input id='submitButton' class='button button-primary'type='submit' value='search'></input>
-		</form>
+	<div id="root">
 	</div>
-	<div id='tweetContainer' class="container">
-		<div class="row">
-			<div id="userSubmittedTweetsHeader"></div>
-			<div id="userSubmittedTweets" class="nine columns"></div>
-			<div id="tweetsHeader"></div>
-			<div id="tweetsDiv" class="nine columns"></div>
-			<br>
-		</div>
-	</div>
-	<body></body>
-	<div>
-	<div id='hashtagAssociatesDiv' class="container">
+	<!-- <div id='hashtagAssociatesDiv' class="container">
 		<h5 class="hashtagsHeader">Associated Hashtags:</h5>
 		<h6 class="hashtagsHeader">Click on a hashtag in the chart to search for it</h6>
 		<div id='pieChart'></div>
 		<p id='hashtagAssociates'></p>
-	</div>
+	</div> -->
 	<br>
 	<br>
 	<script src="bundle.js"></script>
