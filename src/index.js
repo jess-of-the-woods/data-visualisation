@@ -6,9 +6,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/app'
 
-ReactDOM.render(
-		<App />, document.querySelector('root')
-)
+document.addEventListener("DOMContentLoaded", function() {
+	ReactDOM.render(
+			<App />, document.querySelector('#root')
+	)
+});
+
+
 
 // $(document).ready(function() {
 // 	request
