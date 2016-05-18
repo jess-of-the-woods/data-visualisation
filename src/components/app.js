@@ -2,10 +2,10 @@ import react from 'react'
 import Form from './form'
 import TweetContainer from './tweetContainer'
 
-class App {
-  constructor(props)
-  super(props)
-
+class App extends Component{
+  constructor(props){
+    super(props)
+  }
   render(){
     return (
       <div>
