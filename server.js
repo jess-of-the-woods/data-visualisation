@@ -53,5 +53,5 @@ app.post('/tweets', function(req, res){
 })
 
 app.listen(port, function () {
-  console.log('Tweet visualisation scuttling along on the 3000th port. Yea..')
+  console.log('Hashtag Web scuttling along on the 3000th port? Yep..')
 });
