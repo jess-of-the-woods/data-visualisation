@@ -3,6 +3,7 @@ require('dotenv').config();
 var Twitter = require('twitter');
 var bodyParser = require('body-parser')
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
 app.use(express.static('client'));
@@ -51,6 +52,6 @@ app.post('/tweets', function(req, res){
   })
 })
 
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log('Tweet visualisation scuttling along on the 3000th port. Yea..')
 });
