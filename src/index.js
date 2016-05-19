@@ -11,18 +11,6 @@ domready (function(){
 	ReactDOM.render(
 			<App />, document.querySelector('#root')
 	)
-	request
-		.get('http://localhost:3000/tweets')
-		.end(function(err, res){
-			$('#tweetsHeader').append('<h3 class="ten columns">Tweet results ( hardcoded hashtag )..</h3>')
-			res.body.map(function(tweet){
-				return $('#tweetsDiv').append('<p>' + tweet.text + ' ' + '<br>' +'User Name: ' + tweet.user.name + ' ' + 'Location: ' + tweet.user.location + '</p>')
-			})
-
-      var sortedHashTagCountArray = helpers.analyseHashtags( res.body )
-      pieChart( sortedHashTagCountArray.slice(0,7), '#pieChart' )
-      helpers.renderSortedHashtags( sortedHashTagCountArray )
-    })
 
 	$('#hashtagForm').submit(function(e){
 		e.preventDefault()

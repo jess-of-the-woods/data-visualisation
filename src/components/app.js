@@ -1,7 +1,5 @@
 import React from 'react'
 import Form from './form'
-import TweetContainer from './tweetContainer'
-import HashtagAssociates from './hashtagAssociates'
 
 class App extends React.Component{
   constructor(props){
@@ -13,8 +11,6 @@ class App extends React.Component{
       <div>
         <h1>Hashtag Web</h1>
         <Form />
-        <TweetContainer />
-        <HashtagAssociates />
       </div>
     )
   }
