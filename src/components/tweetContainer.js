@@ -11,12 +11,13 @@ class TweetContainer extends Component {
       <div id='tweetContainer' className="container">
         <div className="row">
           <div id="userSubmittedTweetsHeader"></div>
-          <div id="userSubmittedTweets" className="nine columns"><ul>{this.props.tweets.map(function(tweet){
-            return <li>{tweet}</li>
-          })
-        }
-        </ul>
-        </div>
+          <div id="userSubmittedTweets" className="nine columns">
+            <ul>{this.props.tweets.map(function(tweet){
+              return <li>{tweet}</li>
+                  })
+                }
+            </ul>
+          </div>
         <br/>
         </div>
       </div>
