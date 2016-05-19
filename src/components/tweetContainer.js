@@ -17,9 +17,7 @@ class TweetContainer extends Component {
         }
         </ul>
         </div>
-          // <div id="tweetsHeader"></div>
-          // <div id="tweetsDiv" className="nine columns"></div>
-          <br/>
+        <br/>
         </div>
       </div>
     )
@@ -27,3 +25,6 @@ class TweetContainer extends Component {
 }
 
 export default TweetContainer
+
+// <div id="tweetsHeader"></div>
+// <div id="tweetsDiv" className="nine columns"></div>
