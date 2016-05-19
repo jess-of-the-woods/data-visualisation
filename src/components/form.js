@@ -14,7 +14,6 @@ export default class Form extends Component {
   }
 
   componentDidMount(){
-    console.log('this: ', this)
     this.getData()
   }
 
@@ -23,13 +22,10 @@ export default class Form extends Component {
       .get('http://localhost:3000/tweets')
       .end(function(err, res){
         console.log('res.body: ', res.body)
-        // console.log('this: ', this)
         const tweets = res.body.map(function(obj){
           return obj.text
         })
         this.setState({ tweets: tweets  })
-    // this.setState({tweets: ['ummm hello', 'yea i guess so']})
-
         // var sortedHashTagCountArray = helpers.analyseHashtags( res.body )
         // helpers.renderSortedHashtags( sortedHashTagCountArray )
       }.bind(this))
