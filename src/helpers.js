@@ -1,3 +1,4 @@
+'use strict'
 import $ from 'jquery'
 
 export function analyseHashtags (tweets) {

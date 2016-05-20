@@ -1,3 +1,4 @@
+'use strict'
 import $ from 'jquery'
 import request from 'superagent'
 import pieChart from './pieChart'

@@ -5,8 +5,6 @@ import TweetContainer from './tweetContainer'
 import HashtagAssociates from './hashtagAssociates'
 //import helpers?
 
-
-
 export default class Form extends Component {
   constructor(props){
     super(props)
@@ -21,13 +19,12 @@ export default class Form extends Component {
     request
       .get('http://localhost:3000/tweets')
       .end(function(err, res){
-        console.log('res.body: ', res.body)
+        // console.log('res.body: ', res.body)
         const tweets = res.body.map(function(obj){
           return obj.text
         })
         this.setState({ tweets: tweets  })
-        // var sortedHashTagCountArray = helpers.analyseHashtags( res.body )
-        // helpers.renderSortedHashtags( sortedHashTagCountArray )
+
       }.bind(this))
   }
 
