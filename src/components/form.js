@@ -23,16 +23,21 @@ export default class Form extends Component {
         const tweets = res.body.map(function(obj){
           return obj.text
         })
+        // console.log('tweets:', tweets, 'typeof: ', typeof tweets)
         this.setState({ tweets: tweets  })
 
       }.bind(this))
+  }
+
+  handleHashtagChange(e){
+    this.setState({hashtag: e.target.value})
   }
 
   render(){
     return (
       <div>
         <form id='hashtagForm'>
-          <input id='hashtagInput' type="text" name='hashtag' placeholder="hashtag.."></input>
+          <input type="text" value={this.state.value} id='hashtagInput' name='hashtag' placeholder="hashtag.." onChange={this.handleHashtagChange} />
           <select>
             <option value="none">No region</option>
             <option value="tamakiMakaurauGeoCode">Tamaki Makaurau - Auckland</option>
@@ -40,10 +45,15 @@ export default class Form extends Component {
             <option value="ponekeGeoCode">Poneke - Wellington</option>
             <option value="otautahiGeoCode">Otautahi - Christchurch</option>
           </select>
-          <input id='submitButton' className='button button-primary' type='submit' value='search' onClick={this.getData.bind(this)}></input>
+          <input id='submitButton' className='button button-primary' type='submit' value='search' onClick={this.handleSubmit.bind(this)}></input>
         </form>
-        <TweetContainer tweets={this.state.tweets}/>
+        <TweetContainer tweets={this.state.tweets} />
       </div>
     )
   }
+
+  handleSubmit(){
+    console.log("hashtag: " + this.state.hashtag)
+  }
+
 }

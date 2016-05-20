@@ -12,8 +12,8 @@ class TweetContainer extends Component {
         <div className="row">
           <div id="userSubmittedTweetsHeader"></div>
           <div id="userSubmittedTweets" className="nine columns">
-            <ul>{this.props.tweets.map(function(tweet){
-              return <li>{tweet}</li>
+            <ul>{this.props.tweets.map(function(tweet, index){
+              return <li key={index}>{tweet}</li>
                   })
                 }
             </ul>
