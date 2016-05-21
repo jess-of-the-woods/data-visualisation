@@ -10,15 +10,23 @@ body {
 h1 {
   opacity: .7;
   margin-top: 2.5%;
-  margin-left: 2.5%;
+  margin-left: 7.5%;
   font-weight: 400;
 
+}
+
+#link {
+  /*text-align: center;*/
+  margin-left: 80%;
+  color: #cc66ff;
+  font-size: 1.4em;
+  text-decoration: none;
 }
 
 /*========== form ===========*/
 
 #hashtagForm {
-    margin-left: 15%;
+    margin-left: 18%;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -39,14 +47,13 @@ h1 {
   width: 22%;
   border-style: none;
   box-sizing: border-box;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   padding-left: 10px;
 }
 
 #regionGeoCode {
   background-color: #8c8c8c;
   color: #474640;
-
   border-style: none;
 }
 
@@ -54,7 +61,7 @@ h1 {
   background-color: #666666;
   text-align: center;
   color: #333333;
-  width: 20%;
+  width: 15%;
   border-style: none;
 }
 
@@ -62,7 +69,8 @@ h1 {
 
 
 #userSubmittedTweets, #tweetsDiv {
-  height: 200px;
+  height: 300px;
+  width: 90%;
   margin: 4px;
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
