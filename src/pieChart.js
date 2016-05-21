@@ -5,10 +5,10 @@ function pieChart(data, root) {
 
   var svg = d3.select(root).append('svg') // select root element (div where it will append), append svg element
       .attr("width", 600)
-      .attr("height", 450) // sets width/height of svg element
+      .attr("height", 400) // sets width/height of svg element
       .append("g")
       .attr("transform", "translate(" + 300 + "," + 225 + ")"); // translates (shifts) chart (g element) to middle of svg element
-       var width = 600, height = 450, radius = Math.min(width, height) / 2;
+       var width = 600, height = 400, radius = Math.min(width, height) / 2;
 
   var arc = d3.svg.arc() // defines the radius of the chart
       .outerRadius(130 - 10)

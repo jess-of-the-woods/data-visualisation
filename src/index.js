@@ -7,7 +7,7 @@ $(document).ready(function() {
 	request
 		.get('/tweets')
 		.end(function(err, res){
-			$('#tweetsHeader').append('<h3 class="ten columns">Tweet results ( hardcoded hashtag )..</h3>')
+			$('#tweetsHeader').append('<h5 class="ten columns">Search results for #happy..</h5>')
 			res.body.map(function(tweet){
 				return $('#tweetsDiv').append('<p>' + tweet.text + ' ' + '<br>' +'User Name: ' + tweet.user.name + ' ' + 'Location: ' + tweet.user.location + '</p>')
 			})
@@ -30,7 +30,7 @@ $(document).ready(function() {
 			}
 			else {
         helpers.clearCurrentData()
-				$('#userSubmittedTweetsHeader').prepend('<h3 class="ten columns" id="searchResult">Search Results:' + ' ' + '#' + value + '</h3>')
+				$('#userSubmittedTweetsHeader').prepend('<h5 class="ten columns" id="searchResult">Search Results for #' + value + '</h5>')
 				res.body.map(function(tweet){
 					return $('#userSubmittedTweets').append('<p>' + tweet.text + ' ' + '<br>' +'User Name: ' + tweet.user.name + ' ' + 'Location: ' + tweet.user.location + '</p>')
 				})
