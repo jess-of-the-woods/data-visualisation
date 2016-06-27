@@ -11,15 +11,8 @@ h1 {
   opacity: .7;
   margin-top: 2.5%;
   margin-left: 7.5%;
-  font-weight: 400;
-}
-
-#link {
-  /*text-align: center;*/
-  margin-left: 80%;
-  color: #cc66ff;
-  font-size: 1.4em;
-  text-decoration: none;
+  /*font-weight: 400;*/
+  font-size: 5em;
 }
 
 /*========== form ===========*/
@@ -69,7 +62,7 @@ h1 {
 
 
 #userSubmittedTweets, #tweetsDiv {
-  height: 300px;
+  height: 400px;
   width: 90%;
   margin: 4px;
   border-radius: 10px;
@@ -84,7 +77,7 @@ h1 {
 
 #userSubmittedTweets, #tweetsDiv p {
   color: #bbb;
-  font-size: .9em;
+  font-size: 1.4em;
 }
 
 #userSubmittedTweets:empty {
@@ -97,6 +90,7 @@ h1 {
 
 #tweetsHeader {
     margin-top: 20px;
+    font-size: 2em;
 }
 
 /*========== hashtags==========*/
@@ -128,9 +122,19 @@ text {
 
 .hashtagsHeader {
   margin: 10px;
+  font-size: 2.5em;
 }
 
 #hashtagAssociates {
   margin-left: 15%;
   color: #bbb;
+  font-size: 1.6em;
+}
+
+#link {
+  margin-left: 80%;
+  padding-bottom: 3%;
+  color: #cc66ff;
+  font-size: 2.4em;
+  text-decoration: none;
 }
