@@ -2,6 +2,9 @@
   "name": "hashtag-web",
   "version": "0.0.0",
   "description": "",
+  "engines": {
+   "node": "4.4.3"
+ },
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run build",
