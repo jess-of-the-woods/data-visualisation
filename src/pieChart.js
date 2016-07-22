@@ -4,19 +4,19 @@ function pieChart(data, root) {
   var color = d3.scale.category20b() // sets the color palette
 
   var svg = d3.select(root).append('svg') // select root element (div where it will append), append svg element
-      .attr("width", 600)
-      .attr("height", 400) // sets width/height of svg element
+      .attr("width", 700)
+      .attr("height", 500) // sets width/height of SVG element
       .append("g")
-      .attr("transform", "translate(" + 300 + "," + 225 + ")"); // translates (shifts) chart (g element) to middle of svg element
-       var width = 600, height = 400, radius = Math.min(width, height) / 2;
+      .attr("transform", "translate(" + 350 + "," + 250 + ")"); // translates (shifts) chart (g element) to middle of SVG element
+      var width = 650, height = 450, radius = Math.min(width, height) / 2;
 
   var arc = d3.svg.arc() // defines the radius of the chart
-      .outerRadius(130 - 10)
-      .innerRadius(50); // anything greater than 0 will make it a 'donut' chart
+      .outerRadius(200 - 10)
+      .innerRadius(70); // anything greater than 0 will make it a 'donut' chart
 
   var outerArc = d3.svg.arc()
-      .outerRadius(160)
-      .innerRadius(140)
+      .outerRadius(250)
+      .innerRadius(230)
 
   var pie = d3.layout.pie()
       .sort(null) // disable sorting the data ( it is already sorted )
@@ -32,7 +32,6 @@ function pieChart(data, root) {
 
     g.append("path")
         .attr("d", arc)
-        // .attr("d", )
         .style("fill", function(d) { return color(d.data.hashtag); });
 
     g.append('polyline')
